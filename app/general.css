@@ -194,3 +194,12 @@ th, td{
 	width: 300px;
 }
 
+.table_row{
+	background-color: white;
+}
+
+.table_row:hover{
+	background-color: red;
+	color: white;
+}
+

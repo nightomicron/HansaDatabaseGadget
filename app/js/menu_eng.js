@@ -6,13 +6,20 @@ window.onload = function() {
 	project_list.style.display = "block";
 	preview.style.display = "block";*/
 	
-	add.onclick = function() {
+	/*add.onclick = function() {
+		blackscreen.style.display = "block";
+		popup.style.display = "block";
+		project_list.style.display = "block";
+		preview.style.display = "block";
+	}*/
+	/*
+	function popup_in() {
 		blackscreen.style.display = "block";
 		popup.style.display = "block";
 		project_list.style.display = "block";
 		preview.style.display = "block";
 	}
-				
+	*/		
 	/*links*/
 	$('#index').on("click", function(){
 		window.location = 'index.html';
@@ -33,5 +40,14 @@ window.onload = function() {
 	$('#ur').on("click", function(){
 		window.location = 'ur.html';
 	});
-			
+	
+
+
+	/*click on table row*/
+	$('.table_row').on("click", function(){
+		//var id = $(this).find('tr').eq(0).text();
+		var id = $(this).find('td').first().text();
+		alert(id);
+	});
+	
 }
