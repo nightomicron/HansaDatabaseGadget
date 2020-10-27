@@ -27,7 +27,7 @@ p{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.menuitem{
+/*.menuitem{
 	background: rgba(48, 133, 230, 1);
 	transition: background 0.5s;
 	-webkit-touch-callout: none;
@@ -66,11 +66,11 @@ p{
 	left: 242px;
 	overflow: hidden;
 }
-
+*/
 /*header-menu ending*/
 
 /*project popup beginning*/
-#blackscreen{
+/*#blackscreen{
 	position: fixed;
 	top: 0px;
 	right: 0px;
@@ -167,7 +167,7 @@ p{
 	text-align: center;
 	line-height: 300px;
 }
-
+*/
 /*project popup ending*/
 
 /*screen div definition*/
@@ -183,7 +183,7 @@ p{
 #vasarlas{
 	position: absolute;
 	top: 50px;
-	width: 1200px;
+	width: 1600px;
 	left: 0px;
 	border-collapse: collapse;
     border-spacing: 0;
