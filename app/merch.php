@@ -53,7 +53,6 @@
 						
 					}else{
 						echo "could not find your data, im sad";
-						//$query_main = "SELECT public.vasarlas.*, public.bolt.nev FROM public.vasarlas INNER JOIN public.bolt ON public.vasarlas.boltid=public.bolt.id";
 					}
 					
 					$result = pg_query($dbc, $query_main);
@@ -63,7 +62,6 @@
 					}
 										
 					while($row = pg_fetch_row($result)) {
-						//echo '<tr class="table_row" data-id="'.$row[0].'"><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 						echo '<tr class="table_row"><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td><td>'.$row[7].'</td></tr>';
 					}
 					

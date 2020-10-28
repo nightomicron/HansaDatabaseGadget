@@ -91,7 +91,6 @@
 					}
 										
 					while($row = pg_fetch_row($result)) {
-						//echo '<tr class="table_row" data-id="'.$row[0].'"><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 						echo '<tr class="table_row"><td><a href="items.php?search='. $row[0] .'" target="_blank"</a>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 					}
 					

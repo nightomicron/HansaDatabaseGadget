@@ -1,10 +1,5 @@
 <?php
 
-	/* CHEAT SHEET
-	$file = fopen('results.csv', 'w');
-	fwrite($file, 'Cats chase mice' . PHP_EOL);
-	fwrite($file, '2nd row');
-	fclose($file);*/
 	$dbc = pg_connect("host=localhost port=5432 dbname=hansa user=postgres password=omicron481");
 	if($dbc){
 		echo "<script>console.log('Success oh ye');</script>";
@@ -63,7 +58,6 @@
 				$file = fopen('results.csv', 'w');
 				
 				while($row = pg_fetch_row($result)) {
-					//echo '<tr class="table_row"><td><a href="items.php?search='. $row[0] .'" target="_blank"</a>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 					
 					fwrite($file, $row[0] . ';' . $row[1] . ';' . $row[2] . ';' . $row[3] . ';' . $row[4] . ';' . $row[5] . ';' . $row[6] . PHP_EOL);
 					
@@ -91,7 +85,6 @@
 				$file = fopen('results.csv', 'w');
 				
 				while($row = pg_fetch_row($result)) {
-					//echo '<tr class="table_row"><td><a href="items.php?search='. $row[0] .'" target="_blank"</a>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 					
 					fwrite($file, $row[0] . ';' . $row[1] . ';' . $row[2] . ';' . $row[3] . ';' . $row[4] . ';' . $row[5] . ';' . PHP_EOL);
 					
@@ -119,7 +112,6 @@
 				$file = fopen('results.csv', 'w');
 				
 				while($row = pg_fetch_row($result)) {
-					//echo '<tr class="table_row"><td><a href="items.php?search='. $row[0] .'" target="_blank"</a>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td><td>'.$row[6].'</td></tr>';
 					
 					fwrite($file, $row[0] . ';' . $row[1] . ';' . $row[2] . ';' . $row[3] . ';' . $row[4] . ';' . $row[5] . ';' . $row[6] . ';' . $row[7] . PHP_EOL);
 					
