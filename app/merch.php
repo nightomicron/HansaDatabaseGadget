@@ -1,11 +1,9 @@
-
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Hansa - Database</title>
 		<link href="general.css" rel="stylesheet" type="text/css" media="all">
-		<script src="js/jquery-3.3.1.min.js"></script>
 	</head>
 	
 	<body>
@@ -21,7 +19,7 @@
 				if(isset($_GET['search'])){
 					echo '<a href="save.php?sheet=merch&sort='.$_GET['search'].'" target="_blank">SAVE TABLE</a>';
 				}else{
-					echo 'Something is not quiet right';
+					echo 'No valid search parameter';
 				}
 				
 			?>
@@ -49,8 +47,6 @@
 					}
 					
 					if(isset($_GET['search'])){
-						//majd torold ki
-						echo '<script>alert("it is set")</script>';
 						
 						$merch_id = $_GET['search'];
 						$query_main = "SELECT public.cikkek.* FROM public.cikkek WHERE public.cikkek.id = '$merch_id'";

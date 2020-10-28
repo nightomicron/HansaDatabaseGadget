@@ -1,11 +1,9 @@
-
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Hansa - Database</title>
 		<link href="general.css" rel="stylesheet" type="text/css" media="all">
-		<script src="js/jquery-3.3.1.min.js"></script>
 	</head>
 	
 	<body>
@@ -49,8 +47,6 @@
 					}
 					
 					if(isset($_GET['sort'])){
-						//majd torold ki
-						echo '<script>alert("it is set")</script>';
 						
 						if($_GET['sort']=="1asc"){
 							$query_main = "SELECT public.vasarlas.*, public.bolt.nev FROM public.vasarlas INNER JOIN public.bolt ON public.vasarlas.boltid=public.bolt.id ORDER BY public.vasarlas.id ASC";

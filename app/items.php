@@ -1,11 +1,9 @@
-
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Hansa - Database</title>
 		<link href="general.css" rel="stylesheet" type="text/css" media="all">
-		<script src="js/jquery-3.3.1.min.js"></script>
 	</head>
 	
 	<body>
@@ -19,9 +17,10 @@
 			<?php
 				//set saving parameters
 				if(isset($_GET['search'])){
-					echo '<a href="save.php?sheet=items&sort='.$_GET['search'].'" target="_blank">SAVE TABLE</a>';
+					echo '<a href="save.php?sheet=items&sort='.$_GET['search'].'" target="_blank">SAVE TABLE</a><br>';
+					echo '<a href="add.php?search='.$_GET['search'].'" target="_blank">ADD NEW ROW</a>';
 				}else{
-					echo 'Something is not quiet right';
+					echo 'No valid search parameter';
 				}
 				
 			?>
@@ -47,8 +46,6 @@
 					}
 					
 					if(isset($_GET['search'])){
-						//majd torold ki
-						echo '<script>alert("it is set")</script>';
 						
 						$item_id = $_GET['search'];
 						$query_main = "SELECT public.vasarlas_tetel.* FROM public.vasarlas_tetel WHERE public.vasarlas_tetel.vasarlasid = '$item_id'";
@@ -60,8 +57,8 @@
 					
 					$result = pg_query($dbc, $query_main);
 					if (!$result) {
-					  echo "Could not get results from database";
-					  exit;
+						echo "Could not get results from database";
+						exit;
 					}
 										
 					while($row = pg_fetch_row($result)) {
