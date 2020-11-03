@@ -1,0 +1,78 @@
+public.bolt
+
+CREATE TABLE public.bolt
+(
+    id integer NOT NULL,
+    nev character varying(50),
+    partnerid integer,
+    CONSTRAINT bolt_pkey PRIMARY KEY (id)
+)
+
+ALTER TABLE public.bolt
+    OWNER to postgres;
+
+public.cikkek
+
+CREATE TABLE public.cikkek
+(
+    id integer NOT NULL,
+    cikkszam character varying(50),
+    vonalkod character varying(50),
+    nev character varying(50),
+    mennyisegiegyseg character varying(50),
+    nettoegysegar double precision,
+    verzio integer,
+    partnerid integer,
+    CONSTRAINT cikkek_pkey PRIMARY KEY (id)
+)
+
+
+ALTER TABLE public.cikkek
+    OWNER to postgres;
+
+
+public.vasarlas
+
+CREATE TABLE public.vasarlas
+(
+    id integer NOT NULL,
+    esemenydatumido timestamp without time zone,
+    vasarlasosszeg double precision,
+    penztargepazonosito integer,
+    partnerid integer,
+    boltid integer,
+    CONSTRAINT vasarlas_pkey PRIMARY KEY (id),
+    CONSTRAINT vasarlas_boltid_fkey FOREIGN KEY (boltid)
+        REFERENCES public.bolt (id) MATCH SIMPLE
+        ON UPDATE SET NULL
+        ON DELETE CASCADE
+)
+
+
+ALTER TABLE public.vasarlas
+    OWNER to postgres;
+
+public.vasarlas_tetel
+
+CREATE TABLE public.vasarlas_tetel
+(
+    id integer NOT NULL,
+    partnerctid integer,
+    vasarlasid integer,
+    mennyiseg double precision,
+    brutto double precision,
+    partnerid integer,
+    CONSTRAINT vasarlas_tetel_pkey PRIMARY KEY (id),
+    CONSTRAINT vasarlas_tetel_partnerctid_fkey FOREIGN KEY (partnerctid)
+        REFERENCES public.cikkek (id) MATCH SIMPLE
+        ON UPDATE SET NULL
+        ON DELETE CASCADE,
+    CONSTRAINT vasarlas_tetel_vasarlasid_fkey FOREIGN KEY (vasarlasid)
+        REFERENCES public.vasarlas (id) MATCH SIMPLE
+        ON UPDATE SET NULL
+        ON DELETE CASCADE
+)
+
+
+ALTER TABLE public.vasarlas_tetel
+    OWNER to postgres;

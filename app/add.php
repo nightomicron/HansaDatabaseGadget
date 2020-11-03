@@ -1,6 +1,6 @@
 <?php
 
-	if(isset($_GET['save']) && isset($_GET['id']) && isset($_GET['quantity']) && isset($_GET['gross']) && isset($_GET['partnerid']) && isset($_GET['merch']) && isset($_GET['search'])) {
+	if(isset($_POST['save']) && isset($_POST['id']) && isset($_POST['quantity']) && isset($_POST['gross']) && isset($_POST['partnerid']) && isset($_POST['merch']) && isset($_POST['search'])) {
 		
 		$dbc = pg_connect("host=localhost port=5432 dbname=hansa user=postgres password=omicron481");
 		if($dbc){
@@ -10,16 +10,18 @@
 			exit;
 		}
 		
-		$id = $_GET['id'];
-		$merch = $_GET['merch'];
-		$search = $_GET['search'];
-		$quantity = $_GET['quantity'];
-		$gross = $_GET['gross'];
-		$partnerid = $_GET['partnerid'];
+		$id = $_POST['id'];
+		$merch = $_POST['merch'];
+		$search = $_POST['search'];
+		$quantity = $_POST['quantity'];
+		$gross = $_POST['gross'];
+		$partnerid = $_POST['partnerid'];
 		
 		$query_main = "INSERT INTO public.vasarlas_tetel(id, partnerctid, vasarlasid, mennyiseg, brutto, partnerid) VALUES ($id, $merch, $search, $quantity, $gross, $partnerid)";
 		pg_query($dbc, $query_main);
 		pg_close($dbc);
+		//closing window after execution to prevent bugs
+		echo "<script>window.close();</script>";
 	}
 
 ?>
@@ -41,7 +43,7 @@
 		
 		<div id="screen">
 			<h1>Add New Row</h1>
-			<form method="get" action="add.php">
+			<form method="post" action="add.php">
 				<fieldset>
 					<label for="id">ID:</label><br>
 					<input type="number" name="id" min="1" id="id"><br><br>

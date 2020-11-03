@@ -1,9 +1,7 @@
 <?php
 
 	$dbc = pg_connect("host=localhost port=5432 dbname=hansa user=postgres password=omicron481");
-	if($dbc){
-		echo "<script>console.log('Success oh ye');</script>";
-	}else{
+	if(!$dbc){
 		echo "<script>console.log('Failed to connect, check if postgres is running or not');</script>";
 		exit;
 	}
@@ -123,7 +121,20 @@
 			echo "Missing SHEET parameter";
 		}
 		
-			
+		//download
+		$filen = "results.csv";
+		if(file_exists($filen)) {
+			$f = fopen($filen, "r");
+			// kényszerítjük a fájl letöltését (azaz, ne ágyazza be böngészőbe)
+			header("Content-Type: application/force-download");
+			// a letöltéshez megadjuk a fájl méretét
+			header("Content-Length: " . filesize($filen));
+			header("Content-Disposition: attachment; filename=results.csv");
+			while(!feof($f)) {
+				echo fread($f,filesize($filen));
+			}
+			fclose($f);
+		}			
 		
 	}else{
 		
